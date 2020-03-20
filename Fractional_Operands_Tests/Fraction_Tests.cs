@@ -32,6 +32,8 @@ namespace Fractional_Operands_Tests
             Assert.That(ex.Message, Is.EqualTo("Invalid fractional format passed"));
             ex = Assert.Throws<ArgumentException>(() => new Fraction("1_2/3/4"));
             Assert.That(ex.Message, Is.EqualTo("Invalid fractional format passed"));
+            ex = Assert.Throws<ArgumentException>(() => new Fraction("1_-3/4"));
+            Assert.That(ex.Message, Is.EqualTo("Invalid fractional format passed"));
             ex = Assert.Throws<ArgumentException>(() => new Fraction("1/2_3/4"));
             Assert.That(ex.Message, Is.EqualTo("Non-integer values passed"));
             ex = Assert.Throws<ArgumentException>(() => new Fraction("_3/4"));

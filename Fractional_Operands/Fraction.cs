@@ -59,7 +59,10 @@ namespace Fractional_Operands
                 throw new ArgumentException("Denominator cannot be zero");
             }
 
-            if (whole != 0) { 
+            if (whole != 0) {
+                if (numerator < 0) { // Covers 3_-3/4 case (invalid)
+                    throw new ArgumentException("Invalid fractional format passed");
+                }
                 if (whole < 0) {
                     numerator = -numerator; //Covers -3_3/4 case (-15/4)
                 }
